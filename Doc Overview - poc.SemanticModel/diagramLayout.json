@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 597,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1680,
+            "y": 223.5
+          },
+          "nodeIndex": "Metadata-Milestone ID",
+          "nodeLineageTag": "9b8560a1-5a75-407b-a271-db6ac65d7bb5",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 12.5
+          },
+          "nodeIndex": "Aconex all",
+          "nodeLineageTag": "a23e86d5-5b61-4a9e-ace4-bf34b5282bb7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 38.5
+          },
+          "nodeIndex": "Primavera all",
+          "nodeLineageTag": "ac9e3dd6-4362-48b0-bf34-d6a37d4b9dd4",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 86.5
+          },
+          "nodeIndex": "WTG ID",
+          "nodeLineageTag": "ff050a32-c9b4-4d7e-bbc2-5e09ad22bbce",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
