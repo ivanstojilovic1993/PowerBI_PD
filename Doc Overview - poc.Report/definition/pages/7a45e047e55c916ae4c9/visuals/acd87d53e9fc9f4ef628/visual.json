@@ -1,0 +1,798 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "acd87d53e9fc9f4ef628",
+  "position": {
+    "x": 0,
+    "y": 313.3178654292343,
+    "z": 0,
+    "height": 406.86774941995355,
+    "width": 1250.3016241299304,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": []
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex_key"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Aconex_key",
+              "nativeQueryRef": "Aconex_key",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Volume/Sub-section"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Aconex.Volume/Sub-section",
+              "nativeQueryRef": "Aconex.Volume/Sub-section",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Document No"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Aconex.Document No",
+              "nativeQueryRef": "Aconex.Document No",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Title"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Aconex.Title",
+              "nativeQueryRef": "Aconex.Title",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Aconex all"
+                    }
+                  },
+                  "Property": "Volume/Sub-section"
+                }
+              },
+              "queryRef": "Aconex all.Volume/Sub-section",
+              "nativeQueryRef": "Volume/Sub-section",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Aconex all"
+                    }
+                  },
+                  "Property": "Final Documentation Book"
+                }
+              },
+              "queryRef": "Aconex all.Final Documentation Book",
+              "nativeQueryRef": "Final Documentation Book",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Primavera.Activity ID"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Primavera.Activity ID",
+              "nativeQueryRef": "Primavera.Activity ID",
+              "active": true
+            }
+          ],
+          "showAll": true
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Metadata-Milestone ID"
+                        }
+                      },
+                      "Property": "Aconex.Contractual Date"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Metadata-Milestone ID.Aconex.Contractual Date)",
+              "nativeQueryRef": "First Aconex.Contractual Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Metadata-Milestone ID"
+                        }
+                      },
+                      "Property": "Primavera.Start Date"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Metadata-Milestone ID.Primavera.Start Date)",
+              "nativeQueryRef": "Earliest Primavera.Start Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Metadata-Milestone ID"
+                        }
+                      },
+                      "Property": "Primavera.Finish Date"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Metadata-Milestone ID.Primavera.Finish Date)",
+              "nativeQueryRef": "Earliest Primavera.Finish Date"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metadata-Milestone ID"
+                  }
+                },
+                "Property": "Aconex_key"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Metadata-Milestone ID.Aconex_key"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex_key"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Metadata-Milestone ID.Aconex.Volume/Sub-section"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Volume/Sub-section"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Metadata-Milestone ID.Aconex.Document No"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Document No"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Metadata-Milestone ID.Aconex.Title"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Title"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Aconex all.Volume/Sub-section"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Aconex all"
+                    }
+                  },
+                  "Property": "Volume/Sub-section"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Aconex all.Final Documentation Book"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Aconex all"
+                    }
+                  },
+                  "Property": "Final Documentation Book"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Metadata-Milestone ID.Primavera.Activity ID"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M13-Final Taking Over Certificate per WTG'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "null"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M8-Pre-Assembly Harbour Delivery Certificate'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M8.a-Ex-work Nacelle per WTG'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M9-Pre-Assembly Harbour Delivery Certificate'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M9.a-Ex-work Blade per blade set'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M10-Ready to Load Out Certificate per WTG'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M11-Commissioning Completion Certificate per WTG'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'M14-Wind Farm Taking Over Certificate'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'WTG Delivery Certificate Pre-assembly Harbour'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'ITP Installation'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Reliability Test Completion Certificate'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.50871014478636D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Aconex all.Volume/Sub-section"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "208.85403736094742D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metadata-Milestone ID.Aconex.Title"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.11981686934008D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metadata-Milestone ID.Aconex.Document No"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "158.96602099715975D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metadata-Milestone ID.Aconex_key"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.0278261693495D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Metadata-Milestone ID.Primavera.Start Date)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.9796500509573D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Metadata-Milestone ID.Primavera.Finish Date)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73.45013124036184D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Aconex all.Final Documentation Book"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108.75433434660462D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Metadata-Milestone ID.Aconex.Contractual Date)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.8252427184466D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metadata-Milestone ID.Aconex.Volume/Sub-section"
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tabular'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fddfd779caa0271b0831",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Metadata-Milestone ID"
+              }
+            },
+            "Property": "Aconex_key"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5ef1116c9abaac15503c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Metadata-Milestone ID"
+              }
+            },
+            "Property": "Aconex.Title"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ecb7ac833e6c99965b88",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Aconex all"
+              }
+            },
+            "Property": "Volume/Sub-section"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "aaf4e4f81e9c36ababaf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Metadata-Milestone ID"
+              }
+            },
+            "Property": "Aconex.Document No"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f0ffc3025eb2d71a6d71",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metadata-Milestone ID"
+                  }
+                },
+                "Property": "Primavera.Start Date"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e339ad7e235731da4cee",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metadata-Milestone ID"
+                  }
+                },
+                "Property": "Primavera.Finish Date"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ab273ceca8b539ab2e71",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Aconex all"
+              }
+            },
+            "Property": "Final Documentation Book"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b7edf2a4aa4427c6d12c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metadata-Milestone ID"
+                  }
+                },
+                "Property": "Aconex.Contractual Date"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a6f16d6dddc1a4e6f5bc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Metadata-Milestone ID"
+              }
+            },
+            "Property": "Primavera.Activity ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a8652c19c436670fa8aa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Metadata-Milestone ID"
+              }
+            },
+            "Property": "Aconex.Volume/Sub-section"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

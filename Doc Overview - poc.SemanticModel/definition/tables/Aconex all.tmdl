@@ -1,0 +1,259 @@
+table 'Aconex all'
+	lineageTag: a23e86d5-5b61-4a9e-ace4-bf34b5282bb7
+
+	column File
+		dataType: string
+		lineageTag: 5d869095-16ed-4c46-89fd-4944ab92e015
+		summarizeBy: none
+		sourceColumn: File
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contractor ID'
+		dataType: string
+		lineageTag: efca5841-8698-4ce5-a47b-f94013251aec
+		summarizeBy: none
+		sourceColumn: Contractor ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'D2 ID'
+		dataType: string
+		lineageTag: e56ef19a-5447-41ce-9c36-132f737f105a
+		summarizeBy: none
+		sourceColumn: D2 ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document No'
+		dataType: string
+		lineageTag: 65f073ee-0037-4403-924f-a244d5cd92cc
+		summarizeBy: none
+		sourceColumn: Document No
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 2c5f47ac-cc90-4e3a-b172-5fcbcc268a49
+		summarizeBy: none
+		sourceColumn: Title
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revision
+		dataType: int64
+		formatString: 0
+		lineageTag: a5ab0e5e-1026-4f92-8d4d-9fe294af2ce6
+		summarizeBy: none
+		sourceColumn: Revision
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline
+		dataType: string
+		lineageTag: e441306e-f53f-4846-8051-3f0216068a1d
+		summarizeBy: none
+		sourceColumn: Discipline
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 7a074acd-3569-4e56-abfa-7055116d8cb0
+		summarizeBy: none
+		sourceColumn: Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Doc. Nature'
+		dataType: string
+		lineageTag: 271dcb0b-39ff-4d37-8d8a-fabd91e35bcb
+		summarizeBy: none
+		sourceColumn: Doc. Nature
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 7e7248d6-d071-4dc1-b4e6-d154d4070e7e
+		summarizeBy: none
+		sourceColumn: Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Review Status'
+		dataType: string
+		lineageTag: 44296e7f-fb7d-44e1-8002-4c6bd9a0d9eb
+		summarizeBy: none
+		sourceColumn: Review Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contractual Date Aconex'
+		dataType: string
+		lineageTag: d3c4e055-2c11-4590-ac18-ba95f6797a42
+		summarizeBy: none
+		sourceColumn: Contractual Date Aconex
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual issue date'
+		dataType: string
+		lineageTag: a51420c5-fb87-4b61-b3d4-810ad24d9805
+		summarizeBy: none
+		sourceColumn: Actual issue date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Required in Final Documentation?'
+		dataType: string
+		lineageTag: 9c353943-de30-46fe-b246-883b231e0498
+		summarizeBy: none
+		sourceColumn: Required in Final Documentation?
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Final Documentation Book'
+		dataType: string
+		lineageTag: cbcd3c4d-9279-4d55-9f98-38136d07ba9e
+		summarizeBy: none
+		sourceColumn: Final Documentation Book
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Section
+		dataType: string
+		lineageTag: ad058570-c142-432f-b289-14117159e1d8
+		summarizeBy: none
+		sourceColumn: Section
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Volume/Sub-section
+		dataType: string
+		lineageTag: 969873a0-230a-4207-986c-a90b809e8c69
+		summarizeBy: none
+		sourceColumn: Volume/Sub-section
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Milestone ID'
+		dataType: string
+		lineageTag: bb38d0fd-ab90-473b-b8d6-14d67336b367
+		summarizeBy: none
+		sourceColumn: Milestone ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MWS Review?'
+		dataType: string
+		lineageTag: 20993a69-e526-4f8f-a5b6-4f31fcef5531
+		summarizeBy: none
+		sourceColumn: MWS Review?
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CB Review?'
+		dataType: string
+		lineageTag: dc81c084-b2e8-453b-9c56-50b5c7724256
+		summarizeBy: none
+		sourceColumn: CB Review?
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: b7c1d14f-84df-42f2-90b0-307f78858603
+		summarizeBy: none
+		sourceColumn: Comments
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Title - Copy.1'
+		dataType: string
+		lineageTag: 92bd0eca-d16a-47f1-b112-d6c7e01156be
+		summarizeBy: none
+		sourceColumn: Title - Copy.1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Title - Copy.2'
+		dataType: string
+		lineageTag: ddbd8318-f6e7-4695-adde-99d068a3be2b
+		summarizeBy: none
+		sourceColumn: Title - Copy.2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Aconex all' = m
+		mode: import
+		queryGroup: All
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Z004Y62J\OneDrive - Siemens Energy\Attachments\Docs reports\ExportDocs-20260218_08-36.xlsx"), null, true),
+				    Docs1 = Source{[Name="Docs"]}[Data],
+				    #"Removed Top Rows" = Table.Skip(Docs1,9),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"File", type text}, {"Contractor ID", type text}, {"D2 ID", type text}, {"Document No", type text}, {"Title", type text}, {"Revision", Int64.Type}, {"Discipline", type text}, {"Type", type text}, {"Doc. Nature", type text}, {"Status", type text}, {"Review Status", type text}, {"Contractual Date", type text}, {"Actual issue date", type text}, {"Required in Final Documentation?", type text}, {"Final Documentation Book", type text}, {"Section", type text}, {"Volume/Sub-section", type text}, {"Milestone ID", type text}, {"MWS Review?", type text}, {"CB Review?", type text}, {"Comments", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"Contractual Date", "Contractual Date Aconex"}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Renamed Columns",{{"Milestone ID", Text.Trim, type text}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Trimmed Text", "Title", "Title - Copy"),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column", "Title - Copy", Splitter.SplitTextByEachDelimiter({"-"}, QuoteStyle.Csv, false), {"Title - Copy.1", "Title - Copy.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Title - Copy.1", type text}, {"Title - Copy.2", type text}}),
+				    #"Trimmed Text1" = Table.TransformColumns(#"Changed Type",{{"Title - Copy.1", Text.Trim, type text}})
+				in
+				    #"Trimmed Text1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

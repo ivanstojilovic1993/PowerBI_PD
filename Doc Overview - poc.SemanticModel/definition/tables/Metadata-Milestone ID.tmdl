@@ -1,0 +1,477 @@
+table 'Metadata-Milestone ID'
+	lineageTag: 9b8560a1-5a75-407b-a271-db6ac65d7bb5
+
+	measure 'No.ofDocs' = DISTINCTCOUNT('Metadata-Milestone ID'[Aconex.Document No])
+		formatString: #,0
+		lineageTag: b5921e6e-7ff0-4b10-81c7-4200f7021ebf
+
+		changedProperty = IsHidden
+
+	measure 'Reviewed Docs' = CALCULATE([No.ofDocs], 'Metadata-Milestone ID'[Aconex.Review Status]="Reviewed")
+		formatString: 0
+		lineageTag: 48e4489b-81a2-4cee-baf9-4c52bd7964c3
+
+	measure 'KPI_Total_Documents_Reviewed HTML' = ```
+			
+			VAR _count = 
+			[No.ofDocs Reviewed]
+			VAR _formatted = FORMAT(_count, "#,##0")
+			
+			RETURN
+			"<div style='font-family:Segoe UI,sans-serif;background:transparent;border-left:4px solid #321850;padding:8px 16px;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;'>
+			  <div style='font-size:11px;color:#888888;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;'>
+			    Reviewed Documents
+			  </div>
+			  <div style='font-size:24px;font-weight:600;color:#1a1a2e;line-height:1;'>
+			    " & _formatted & "
+			  </div>
+			  <div style='font-size:11px;color:#aaaaaa;margin-top:6px;'>
+			    Source: Aconex
+			  </div>
+			</div>"
+			```
+		lineageTag: 912e9d79-6df0-452b-8bd5-00784b617a57
+
+	measure 'No.ofDocs Reviewed' = CALCULATE([No.ofDocs],'Metadata-Milestone ID'[Aconex.Review Status]="Reviewed")
+		formatString: 0
+		lineageTag: d62a3358-fb8a-4cb4-974b-a30749d763a5
+
+	measure KPI_Total_Documents_HTML = ```
+			
+			VAR _count = 
+			[No.ofDocs]
+			VAR _formatted = FORMAT(_count, "#,##0")
+			
+			RETURN
+			"<div style='font-family:Segoe UI,sans-serif;background:transparent;border-left:4px solid #321850;padding:8px 16px;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;'>
+			  <div style='font-size:11px;color:#888888;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;'>
+			    Total Documents
+			  </div>
+			  <div style='font-size:24px;font-weight:600;color:#1a1a2e;line-height:1;'>
+			    " & _formatted & "
+			  </div>
+			  <div style='font-size:11px;color:#aaaaaa;margin-top:6px;'>
+			    Placeholders in Aconex
+			  </div>
+			</div>"
+			```
+		lineageTag: 04af83b5-4d48-46c1-91f7-242f21f9b211
+
+	measure 'No.ofDocs QA Accepted' = CALCULATE([No.ofDocs],'Metadata-Milestone ID'[Aconex.Review Status]="QA Accepted")
+		formatString: 0
+		lineageTag: b8be891d-411c-492a-a023-6ff33f68155b
+
+	measure KPI_QA_Accepted_Documents_HTML = ```
+			
+			VAR _count = 
+			[No.ofDocs QA Accepted]
+			VAR _formatted = FORMAT(_count, "#,##0")
+			
+			RETURN
+			"<div style='font-family:Segoe UI,sans-serif;background:transparent;border-left:4px solid #321850;padding:8px 16px;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;'>
+			  <div style='font-size:11px;color:#888888;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;'>
+			    QA Accepted Documents
+			  </div>
+			  <div style='font-size:24px;font-weight:600;color:#1a1a2e;line-height:1;'>
+			    " & _formatted & "
+			  </div>
+			  <div style='font-size:11px;color:#aaaaaa;margin-top:6px;'>
+			    Source: Aconex
+			  </div>
+			</div>"
+			```
+		lineageTag: 04278103-695c-4f6d-bb59-725338dc8fe9
+
+	measure 'No.ofDocs Open Comments' = CALCULATE([No.ofDocs],'Metadata-Milestone ID'[Aconex.Review Status]="Open Comments")
+		formatString: 0
+		lineageTag: 1e988333-e2de-46ce-88b2-20f363572042
+
+	measure 'No.ofDocs NoReviewStatus' = CALCULATE([No.ofDocs],'Metadata-Milestone ID'[Aconex.Review Status]=BLANK())
+		formatString: 0
+		lineageTag: d843fc83-f9aa-4297-a9b4-a7c337e7bef2
+
+	measure KPI_Open_Comments_HTML = ```
+			
+			VAR _count = 
+			[No.ofDocs Open Comments]
+			VAR _formatted = FORMAT(_count, "#,##0")
+			
+			RETURN
+			"<div style='font-family:Segoe UI,sans-serif;background:transparent;border-left:4px solid #321850;padding:8px 16px;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;'>
+			  <div style='font-size:11px;color:#888888;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;'>
+			    Open Comments
+			  </div>
+			  <div style='font-size:24px;font-weight:600;color:#1a1a2e;line-height:1;'>
+			    " & _formatted & "
+			  </div>
+			  <div style='font-size:11px;color:#aaaaaa;margin-top:6px;'>
+			    Source: Aconex
+			  </div>
+			</div>"
+			```
+		lineageTag: 4e67ff5f-81f8-41fb-8007-b2d4569d275f
+
+	measure KPI_No_Review_Status_HTML = ```
+			
+			VAR _count = 
+			[No.ofDocs NoReviewStatus]
+			VAR _formatted = FORMAT(_count, "#,##0")
+			
+			RETURN
+			"<div style='font-family:Segoe UI,sans-serif;background:transparent;border-left:4px solid #321850;padding:8px 16px;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;'>
+			  <div style='font-size:11px;color:#888888;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;'>
+			    No Review Status
+			  </div>
+			  <div style='font-size:24px;font-weight:600;color:#1a1a2e;line-height:1;'>
+			    " & _formatted & "
+			  </div>
+			  <div style='font-size:11px;color:#aaaaaa;margin-top:6px;'>
+			    Source: Aconex
+			  </div>
+			</div>"
+			```
+		lineageTag: 8eee28aa-bcb7-4e3a-a193-2cf229bd8f46
+
+	column '# '
+		dataType: string
+		lineageTag: 68fa383e-1c27-47d7-b126-d5cc1408df4c
+		summarizeBy: none
+		sourceColumn: "# "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Milestone description contract'
+		dataType: string
+		lineageTag: 51cd259a-88b1-46a9-b85d-694680167962
+		summarizeBy: none
+		sourceColumn: Milestone description contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Documentation / Deliverable '
+		dataType: string
+		lineageTag: ecd5889d-978d-4b58-b2bc-9db31e7c8049
+		summarizeBy: none
+		sourceColumn: "Documentation / Deliverable "
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aconex_key
+		dataType: string
+		lineageTag: 9471762c-632b-4fa4-ad19-341b1aa03ef5
+		summarizeBy: none
+		sourceColumn: Aconex_key
+		sortByColumn: Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Primavera
+		dataType: string
+		lineageTag: 7527c7d4-f0c3-460e-953a-7a3fe9b8fbef
+		summarizeBy: none
+		sourceColumn: Primavera
+
+		annotation SummarizationSetBy = Automatic
+
+	column P9_key
+		dataType: string
+		lineageTag: bb1f165e-373a-462d-b840-6c727e1188e6
+		summarizeBy: none
+		sourceColumn: P9_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Document No'
+		dataType: string
+		lineageTag: e2a798d1-3506-45e5-a19b-56ee79b795a3
+		summarizeBy: none
+		sourceColumn: Aconex.Document No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Title'
+		dataType: string
+		lineageTag: 7eae94f4-a86c-43c9-a34e-4d0a1407436f
+		summarizeBy: none
+		sourceColumn: Aconex.Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Revision'
+		dataType: int64
+		formatString: 0
+		lineageTag: d47b5153-29ef-4c55-bb2d-27c9753a374d
+		summarizeBy: sum
+		sourceColumn: Aconex.Revision
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Discipline'
+		dataType: string
+		lineageTag: 9ae9da15-68f8-461f-a57b-11295434b5e1
+		summarizeBy: none
+		sourceColumn: Aconex.Discipline
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Type'
+		dataType: string
+		lineageTag: 55069ea0-701e-4a99-9700-c07c80b5789d
+		summarizeBy: none
+		sourceColumn: Aconex.Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Doc. Nature'
+		dataType: string
+		lineageTag: 0a13b102-2068-492d-a0e9-f03d74f43a02
+		summarizeBy: none
+		sourceColumn: Aconex.Doc. Nature
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Status'
+		dataType: string
+		lineageTag: b11f87a6-1c41-4208-9bb7-f025bc7412bb
+		summarizeBy: none
+		sourceColumn: Aconex.Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Review Status'
+		dataType: string
+		lineageTag: 01b7e0f0-0d97-4812-b515-e039d4b91ed2
+		summarizeBy: none
+		sourceColumn: Aconex.Review Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Contractual Date'
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		lineageTag: d1a97b2b-8464-473f-9307-663eb80e2d2b
+		summarizeBy: none
+		sourceColumn: Aconex.Contractual Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Aconex.Actual Issue Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3c6f22e1-ebc6-4773-8a92-c619b59f45b6
+		summarizeBy: none
+		sourceColumn: Aconex.Actual Issue Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Aconex.Required in Final Documentation?'
+		dataType: string
+		lineageTag: 88d1afa9-375d-414b-9c5b-311070f82dce
+		summarizeBy: none
+		sourceColumn: Aconex.Required in Final Documentation?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Final Documentation Book'
+		dataType: string
+		lineageTag: 428acfc2-61fe-4462-ba78-12d4695d1daf
+		summarizeBy: none
+		sourceColumn: Aconex.Final Documentation Book
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Section'
+		dataType: string
+		lineageTag: 10e8ba72-dbb7-4833-8a4d-a9612656a189
+		summarizeBy: none
+		sourceColumn: Aconex.Section
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Volume/Sub-section'
+		dataType: string
+		lineageTag: 2048814a-84db-4f2d-a7b6-3f54a0752488
+		summarizeBy: none
+		sourceColumn: Aconex.Volume/Sub-section
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.MWS Review?'
+		dataType: string
+		lineageTag: f7496c2c-d979-4dbc-8eb9-41057c382500
+		summarizeBy: none
+		sourceColumn: Aconex.MWS Review?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.CB Review?'
+		dataType: string
+		lineageTag: ebbf6edb-8fba-497b-b737-111bd77c13c2
+		summarizeBy: none
+		sourceColumn: Aconex.CB Review?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Comments'
+		dataType: string
+		lineageTag: d2eeef80-5f93-4987-b9ee-a5b330946d09
+		summarizeBy: none
+		sourceColumn: Aconex.Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aconex.Title Copy'
+		dataType: string
+		lineageTag: 27aba719-b323-477d-b07b-588433c935f1
+		summarizeBy: none
+		sourceColumn: Aconex.Title Copy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primavera.Activity ID'
+		dataType: string
+		lineageTag: 2c3d5f4f-0241-45ec-bb5c-88723cd452cc
+		summarizeBy: none
+		sourceColumn: Primavera.Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primavera.Activity Name'
+		dataType: string
+		lineageTag: f54feb9b-5c7f-444e-bf04-410c62b8b972
+		summarizeBy: none
+		sourceColumn: Primavera.Activity Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primavera.Start Date'
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		lineageTag: 98cc40fa-4f1a-4eca-a572-4a2377cc0157
+		summarizeBy: none
+		sourceColumn: Primavera.Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Primavera.Finish Date'
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		lineageTag: 559bbaad-f3ce-48bb-90bc-ea1362e53e53
+		summarizeBy: none
+		sourceColumn: Primavera.Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Sort
+		dataType: double
+		lineageTag: 9ac9cb58-4ed4-4ac6-9a23-5da602acb6f2
+		summarizeBy: sum
+		sourceColumn: Sort
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Metadata-Milestone ID' = m
+		mode: import
+		source = ```
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("vVbLbtswEPyVhU8pEBWR7Tx8bJ2mDVC1RmMghyCHlUTFRCRRoKikuvU3+nv9ki5J2aYF25KDuoBh2OTscHZWu+LDw8CHwelghnXGcgX+EDKRq0UJmCgmYSoyWo+Y2bxGxTR4SgiJkRLyz6/fJdQMZVpDIcWTZGUJkhVCKg0MfPrSn8fTh8HQPYfAIFEhFHTI3StX0eKJaKAqRA4xS/kLkzUoATeiymNUnJYTDCWP7O8aZaz5rpfQXJC2sIa1NqAPVyXcVWG0XtSqho6qkV65U0iCRQIZ5lVCwEry/EkvqAWDhMtSQY4RS1PWwJV1JJEiMxjnWDqMIjJNoHfKw7iDkSNu3C1uOFaLI2lrUwdjR9p5t7Tx1dGktamDc0faRd+ShinGdBJTRymqZdfiLhxxl93iRueU3LG0OeRa2qUj7Wpngy6dNt2JUcQKhTQUAJXhnEnmfShLloU0Br6gDEVlGm3r+qpjp0wqnuiGZnDinPLOCLvyttNuDXc12uDesavk3yP9/PTTexXyGb41ZJr4fv55705Aod6bt83hk53O20od13dzRmltnxxquw1uYg92fbLh+keT7Dptevo7d4OJY++bIUaMf7azDFQrWwRelpUpQdNOPxjGNSTUhV8Fxt73Sm04RHwWQW8yDYA24KRht+77Zx7sxy/FNOhe4JWIpcw20Gbvd2dfIBU3BsVovNHfSGRFysz7GPN4bVAzbvTdgf7Stl6YrsEth3rhWkb5Xj/6Db9875CY1WOx++KyMmYmxQvXtJjCHJ81+fcXfX3azLQPrJXo0OtFvpHn0DsgZJXmqDvNG96R4H5AK7WR10HoDFEC98XabMZuNka8btd2+95zem5vUGb7kuoFCvyx149OIzuBqzz0xUb7v3UA63mLrXnrOVb8n8A34G1u+l50O5/BbU53ljS1N/sTqjMvF7pC3F1nGC3Mw/OvgrYvWWWXZmamHEOeclXDXE+87ePiGEg4iHTw+PgX", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"# " = _t, #"Milestone description contract" = _t, #"Documentation / Deliverable " = _t, #"Metadata Aconex proposal" = _t, Aconex_key = _t, Primavera = _t]),
+				    
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Metadata Aconex proposal] <> "M1" and [Metadata Aconex proposal] <> "M2" and [Metadata Aconex proposal] <> "M3" and [Metadata Aconex proposal] <> "M4" and [Metadata Aconex proposal] <> "M5" and [Metadata Aconex proposal] <> "M6" and [Metadata Aconex proposal] <> "M7")),
+				    
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"# ", type text}, {"Milestone description contract", type text}, {"Documentation / Deliverable ", type text}, {"Metadata Aconex proposal", type text}}),
+				    
+				    #"Inserted Text Before Delimiter" = Table.AddColumn(#"Changed Type", "Text Before Delimiter", each Text.BeforeDelimiter([Metadata Aconex proposal], "-"), type text),
+				    
+				    #"Renamed Columns" = Table.RenameColumns(#"Inserted Text Before Delimiter",{{"Text Before Delimiter", "P9_key"}}),
+				    
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Metadata Aconex proposal"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Removed Columns","WTG Delivery Certificate Pre","WTG Delivery Certificate Pre-assembly Harbour",Replacer.ReplaceText,{"P9_key"}),
+				    // ── Merge 1: Aconex all ──────────────────────────────────────────────────
+				    #"Merged Queries" = Table.NestedJoin(#"Replaced Value1", {"Aconex_key"}, #"Aconex all", {"Milestone ID"}, "Aconex all", JoinKind.LeftOuter),
+				    #"Expanded Aconex all" = Table.ExpandTableColumn(#"Merged Queries", "Aconex all",
+				        {"Document No", "Title", "Revision", "Discipline", "Type", "Doc. Nature", "Status", "Review Status",
+				         "Contractual Date Aconex", "Actual issue date", "Required in Final Documentation?",
+				         "Final Documentation Book", "Section", "Volume/Sub-section", "MWS Review?", "CB Review?",
+				         "Comments", "Title - Copy.1"},
+				        {"Aconex.Document No", "Aconex.Title", "Aconex.Revision", "Aconex.Discipline", "Aconex.Type",
+				         "Aconex.Doc. Nature", "Aconex.Status", "Aconex.Review Status", "Aconex.Contractual Date",
+				         "Aconex.Actual Issue Date", "Aconex.Required in Final Documentation?",
+				         "Aconex.Final Documentation Book", "Aconex.Section", "Aconex.Volume/Sub-section",
+				         "Aconex.MWS Review?", "Aconex.CB Review?", "Aconex.Comments", "Aconex.Title Copy"}),
+				
+				    #"Lowercased Text" = Table.TransformColumns(#"Expanded Aconex all",{{"Aconex.Title Copy", Text.Lower, type text}}),
+				    #"Trimmed Text"    = Table.TransformColumns(#"Lowercased Text",{{"Aconex.Title Copy", Text.Trim, type text}, {"P9_key", Text.Trim, type text}}),
+				
+				    // ── Merge 2: Primavera all (M10 – triple key) ───────────────────────────
+				    #"Merged Queries1" = Table.NestedJoin(#"Trimmed Text",
+				        {"P9_key", "Aconex.Volume/Sub-section", "Aconex.Title Copy"},
+				        #"Primavera all",
+				        {"COU | Cert Docu", "WTG IDs", "M10"},
+				        "Primavera all", JoinKind.LeftOuter),
+				    #"Expanded Primavera M10" = Table.ExpandTableColumn(#"Merged Queries1", "Primavera all",
+				        {"Activity ID", "Activity Name", "StartDatePrimavera", "FinishDatePrimavera"},
+				        {"Primavera.M10.Activity ID", "Primavera.M10.Activity Name",
+				         "Primavera.M10.Start Date",  "Primavera.M10.Finish Date"}),
+				
+				    // ── Merge 3: Primavera all (fallback – double key) ───────────────────────
+				    #"Merged Queries2" = Table.NestedJoin(#"Expanded Primavera M10",
+				        {"P9_key", "Aconex.Volume/Sub-section"},
+				        #"Primavera all",
+				        {"COU | Cert Docu", "WTG IDs"},
+				        "Primavera all", JoinKind.LeftOuter),
+				
+				    #"Expanded Primavera Fallback" = Table.ExpandTableColumn(#"Merged Queries2", "Primavera all",
+				        {"Activity ID", "Activity Name", "StartDatePrimavera", "FinishDatePrimavera"},
+				        {"Primavera.Fallback.Activity ID", "Primavera.Fallback.Activity Name",
+				         "Primavera.Fallback.Start Date",  "Primavera.Fallback.Finish Date"}),
+				    // ── Coalesce: prefer M10 match, fall back to double-key match ───────────
+				    #"Added activity_id"      = Table.AddColumn(#"Expanded Primavera Fallback", "Primavera.Activity ID",
+				        each if [Primavera.M10.Activity ID]   <> null then [Primavera.M10.Activity ID]   else [Primavera.Fallback.Activity ID]),
+				    #"Added activity_name"    = Table.AddColumn(#"Added activity_id",           "Primavera.Activity Name",
+				        each if [Primavera.M10.Activity Name] <> null then [Primavera.M10.Activity Name] else [Primavera.Fallback.Activity Name]),
+				    #"Added start_date"       = Table.AddColumn(#"Added activity_name",         "Primavera.Start Date",
+				        each if [Primavera.M10.Start Date]    <> null then [Primavera.M10.Start Date]    else [Primavera.Fallback.Start Date]),
+				    #"Added finish_date"      = Table.AddColumn(#"Added start_date",            "Primavera.Finish Date",
+				        each if [Primavera.M10.Finish Date]   <> null then [Primavera.M10.Finish Date]   else [Primavera.Fallback.Finish Date]),
+				
+				    // ── Cleanup: remove all intermediate helper columns ───────────────────────
+				    #"Removed Intermediate Columns" = Table.RemoveColumns(#"Added finish_date",
+				        {"Primavera.M10.Activity ID",   "Primavera.M10.Activity Name",
+				         "Primavera.M10.Start Date",    "Primavera.M10.Finish Date",
+				         "Primavera.Fallback.Activity ID", "Primavera.Fallback.Activity Name",
+				         "Primavera.Fallback.Start Date",  "Primavera.Fallback.Finish Date"}),
+				
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Intermediate Columns",
+				        {{"Primavera.Start Date", type date}, {"Primavera.Finish Date", type date}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type1", "# ", "#  - Copy"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Duplicated Column","a","1",Replacer.ReplaceText,{"#  - Copy"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Replaced Value",{{"#  - Copy", type number}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type2",{{"#  - Copy", "Sort"}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Renamed Columns1", {{"Aconex.Contractual Date", type date}}, "en-GB"),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Aconex.Actual Issue Date", type date}},"en-GB")
+				in
+				    #"Changed Type3"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

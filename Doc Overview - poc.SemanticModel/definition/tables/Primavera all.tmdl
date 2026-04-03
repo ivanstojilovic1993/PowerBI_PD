@@ -1,0 +1,151 @@
+table 'Primavera all'
+	isHidden
+	lineageTag: ac9e3dd6-4362-48b0-bf34-d6a37d4b9dd4
+
+	column 'Activity ID'
+		dataType: string
+		isHidden
+		lineageTag: 04fc28e9-17d1-4d01-9854-0cd24eadc78f
+		summarizeBy: none
+		sourceColumn: Activity ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COU | Cert Docu'
+		dataType: string
+		isHidden
+		lineageTag: f7450483-af9c-4eb1-8d0f-de71917e5dc6
+		summarizeBy: none
+		sourceColumn: COU | Cert Docu
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Name'
+		dataType: string
+		isHidden
+		lineageTag: a2a3e026-d008-4b76-b032-1a3c6f0607ae
+		summarizeBy: none
+		sourceColumn: Activity Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WTG IDs'
+		dataType: string
+		isHidden
+		lineageTag: 6a766dc9-d74b-407f-8f69-e903af422f62
+		summarizeBy: none
+		sourceColumn: WTG IDs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDatePrimavera
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 4e00115f-8c56-4631-b47e-3a9e1b04ee9c
+		summarizeBy: none
+		sourceColumn: StartDatePrimavera
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FinishDatePrimavera
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 98698b7d-b62e-470d-a575-b895ae3a5a38
+		summarizeBy: none
+		sourceColumn: FinishDatePrimavera
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column M10
+		dataType: string
+		isHidden
+		lineageTag: 720de001-9e05-48d3-8868-76e090c2a40d
+		summarizeBy: none
+		sourceColumn: M10
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Primavera all' = m
+		mode: import
+		queryGroup: All
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Z004Y62J\OneDrive - Siemens Energy\Attachments\Docs reports\2026-02-09-Documentation-Milestones.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Activity ID", type text}, {"COU | Cert Docu", type text}, {"Activity Name", type text}, {"Start", type any}, {"Finish", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [#"COU | Cert Docu"] <> null and [#"COU | Cert Docu"] <> ""),
+				    #"Trimmed Text" = Table.TransformColumns(#"Filtered Rows",{{"Activity ID", Text.Trim, type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Trimmed Text","DelCert","WTG Delivery Certificate Pre-assembly Harbour",Replacer.ReplaceText,{"COU | Cert Docu"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","ITP INS","ITP Installation",Replacer.ReplaceText,{"COU | Cert Docu"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","RelTest","Reliability Test Completion Certificate",Replacer.ReplaceText,{"COU | Cert Docu"}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Replaced Value2", "Activity Name", "Activity Name - Copy"),
+				    #"Inserted Last Characters" = Table.AddColumn(#"Duplicated Column", "Last Characters", each Text.End([#"Activity Name - Copy"], 3), type text),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Inserted Last Characters",{{"Last Characters", Int64.Type}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type1", {{"Last Characters", null}}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Errors", "Dummy", each 1),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"Dummy", Int64.Type}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Changed Type2", {"Last Characters", "Dummy"}, #"WTG ID", {"Index", "Dummy"}, "WTG ID", JoinKind.LeftOuter),
+				    #"Expanded WTG ID" = Table.ExpandTableColumn(#"Merged Queries", "WTG ID", {"WTG ID"}, {"WTG ID.1"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded WTG ID",{{"WTG ID.1", "WTG ID (no blades)"}}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Renamed Columns", "Activity Name - Copy", Splitter.SplitTextByEachDelimiter({"#"}, QuoteStyle.Csv, true), {"Activity Name - Copy.1", "Activity Name - Copy.2"}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Activity Name - Copy.2", Int64.Type}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type4", "Group Index", each Number.RoundUp([#"Activity Name - Copy.2"] / 3)),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom1",{{"Activity Name - Copy.1", type text}, {"Activity Name - Copy.2", Int64.Type}}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Changed Type3", {"Group Index", "Dummy"}, #"WTG ID", {"Index", "Dummy"}, "WTG ID", JoinKind.LeftOuter),
+				    #"Expanded WTG ID1" = Table.ExpandTableColumn(#"Merged Queries1", "WTG ID", {"WTG ID"}, {"WTG ID.1"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Expanded WTG ID1",{"Activity Name - Copy.1", "Activity Name - Copy.2", "Last Characters", "Dummy", "Group Index"}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Removed Columns", "WTG IDs", each if [#"COU | Cert Docu"] = "M9" then [WTG ID.1] else [#"WTG ID (no blades)"]),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Added Conditional Column",{"WTG ID (no blades)", "WTG ID.1"}),
+				    #"Added Custom3" = Table.AddColumn(#"Removed Columns1", "StartDatePrimavera", each if [Start] = null or [Start] = "" then null else
+				try
+				    #date(
+				        2000 + Number.From(Text.Range([Start], 6, 2)),
+				        Number.From(Text.Range([Start], 3, 2)),
+				        Number.From(Text.Range([Start], 0, 2))
+				    )
+				otherwise null),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom3", "FinishDatePrimavera", each if [Finish] = null or [Finish]= "" then null else
+				try
+				    #date(
+				        2000 + Number.From(Text.Range([Finish], 6, 2)),
+				        Number.From(Text.Range([Finish], 3, 2)),
+				        Number.From(Text.Range([Finish], 0, 2))
+				    )
+				otherwise null),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Added Custom2",{{"StartDatePrimavera", type date}, {"FinishDatePrimavera", type date}}),
+				    #"Changed Type6" = Table.TransformColumnTypes(#"Changed Type5",{{"WTG IDs", type text}}),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Changed Type6",{"Start", "Finish"}),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Removed Columns2", "M10", each if Text.Contains([Activity Name], "Ready for Load-Out Certificate") then "Ready for Load Out Certificate" else null),
+				    #"Trimmed Text1" = Table.TransformColumns(#"Added Conditional Column1",{{"M10", Text.Trim, type text}}),
+				    #"Lowercased Text" = Table.TransformColumns(#"Trimmed Text1",{{"M10", Text.Lower, type text}}),
+				    #"Trimmed Text2" = Table.TransformColumns(#"Lowercased Text",{{"M10", Text.Trim, type text}})
+				in
+				    #"Trimmed Text2"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
