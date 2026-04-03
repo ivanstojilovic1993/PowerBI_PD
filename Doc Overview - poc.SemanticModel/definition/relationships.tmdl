@@ -1,8 +1,0 @@
-relationship AutoDetected_28b28798-c96b-4746-96be-1c3a5d457d61
-	fromColumn: 'Metadata-Milestone ID'.'Aconex.Document No'
-	toColumn: 'Aconex all'.'Document No'
-
-relationship AutoDetected_1a8dfb2a-5db8-4646-ac5b-cce97550d43a
-	fromColumn: 'Metadata-Milestone ID'.'Primavera.Activity ID'
-	toColumn: 'Primavera all'.'Activity ID'
-
