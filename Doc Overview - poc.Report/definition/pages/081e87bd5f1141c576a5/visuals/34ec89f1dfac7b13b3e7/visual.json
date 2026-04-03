@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "34ec89f1dfac7b13b3e7",
+  "position": {
+    "x": 378.69124423963132,
+    "y": 533.23502304147462,
+    "z": 21,
+    "height": 172.62905462842832,
+    "width": 887.15207373271892
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Title"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Aconex.Title",
+              "nativeQueryRef": "Aconex.Title"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Status"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Aconex.Status",
+              "nativeQueryRef": "Aconex.Status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metadata-Milestone ID"
+                    }
+                  },
+                  "Property": "Aconex.Section"
+                }
+              },
+              "queryRef": "Metadata-Milestone ID.Aconex.Section",
+              "nativeQueryRef": "Aconex.Section"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metadata-Milestone ID"
+                  }
+                },
+                "Property": "Aconex.Title"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
