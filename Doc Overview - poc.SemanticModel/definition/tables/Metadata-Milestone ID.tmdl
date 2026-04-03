@@ -132,6 +132,10 @@ table 'Metadata-Milestone ID'
 			```
 		lineageTag: 8eee28aa-bcb7-4e3a-a193-2cf229bd8f46
 
+	measure Dummy = 1
+		formatString: General Number
+		lineageTag: cf70e6d3-aafc-42ba-9a3f-214eaac62a44
+
 	column '# '
 		dataType: string
 		lineageTag: 68fa383e-1c27-47d7-b126-d5cc1408df4c
