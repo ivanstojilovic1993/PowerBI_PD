@@ -9,11 +9,10 @@
     "width": 887.15207373271892
   },
   "visual": {
-    "visualType": "tableEx",
-    "autoSelectVisualType": true,
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -27,8 +26,13 @@
                 }
               },
               "queryRef": "Metadata-Milestone ID.Aconex.Title",
-              "nativeQueryRef": "Aconex.Title"
-            },
+              "nativeQueryRef": "Aconex.Title",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
             {
               "field": {
                 "Column": {
@@ -42,20 +46,6 @@
               },
               "queryRef": "Metadata-Milestone ID.Aconex.Status",
               "nativeQueryRef": "Aconex.Status"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metadata-Milestone ID"
-                    }
-                  },
-                  "Property": "Aconex.Section"
-                }
-              },
-              "queryRef": "Metadata-Milestone ID.Aconex.Section",
-              "nativeQueryRef": "Aconex.Section"
             }
           ]
         }
